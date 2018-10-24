@@ -15,7 +15,7 @@ Required Python Packages:
 Installation
 ============
 
-..code:: bash
+::
 
     $ pip3 install tipam
 
@@ -23,7 +23,7 @@ Installation
 Setup
 =====
 
-..code:: bash
+::
 
     $ mkdir tipam
     $ luxon -i tipam tipam
@@ -41,9 +41,7 @@ With regards to creation, you can do the following to/with prefixes in the IPAM:
 * Allocate Prefixes
 * Find Prefixes
 
-As a first step, you have to *Add* a prefix. You can't *allocate* or *find* prefixes before you have *add*ed a prefix.
-
-..code:: bash
+As a first step, you have to *Add* a prefix. You can't *allocate* or *find* prefixes before you have *add* -ed a prefix::
 
     $ curl -X POST \
       http://$TIPAM_URL/v1/prefix \
@@ -54,11 +52,10 @@ As a first step, you have to *Add* a prefix. You can't *allocate* or *find* pref
         }'
 
 
-Adding a prefix, creates the prefix in the IPAM, and always makes it available by setting `free=True`.
+Adding a prefix, creates the prefix in the IPAM, and always makes it available by setting ``free=True``.
 
-Now that a prefix has been added to the IPAM, you can *allocate* a prefix from it:
+Now that a prefix has been added to the IPAM, you can *allocate* a prefix from it::
 
-..code:: bash
 
     $ curl -X POST \
       http://$TIPAM_URL/v1/allocate \
@@ -68,11 +65,10 @@ Now that a prefix has been added to the IPAM, you can *allocate* a prefix from i
 	    "name": "Customer 1"
         }'
 
-Allocating a prefix set's `free=False`, which means no more prefixes can be added/allocated from the allcoated prefix.
+Allocating a prefix set's ``free=False``, which means no more prefixes can be added/allocated from the allcoated prefix.
 
-You can associate tags with prefixes:
+You can associate tags with prefixes::
 
-..code:: bash
 
     $ curl -X POST \
       http://$TIPAM_URL/v1/tag \
@@ -83,10 +79,7 @@ You can associate tags with prefixes:
         }'
 
 You can use *find* to search for, and allocate the first available prefix of a specific length. The tag is used to
-indicate from which range to allocate:
-
-
-..code:: bash
+indicate from which range to allocate::
 
 
     $ curl -X POST \
