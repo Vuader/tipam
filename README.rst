@@ -82,7 +82,7 @@ You can associate tags with prefixes::
         "tag": "doc_example"
        }'
 
-You can use *find* (``v1/find``) to search for, and allocate the first available prefix of a specific length.
+You can use *find* (``v1/find``) to search for, and allocate the first available/free prefix of a specific length.
 The tag is used to indicate from which range to allocate::
 
 
@@ -115,7 +115,7 @@ You can't add the same prefix in the same rib:- Adding a prefix that already exi
 of the existing prefix.
 
 You can add prefixes underneath prefixes (e.g. 192.0.2.128/25), as well as prefixes over prefixes (e.g. 192.0.0.0/16).
-This can be useful fo reserving ranges to tag and allocate from.
+This can be useful for reserving ranges to tag and allocate from.
 
 
 Reading
