@@ -2,12 +2,15 @@
 Tachyonic Project's IPAM (TIPAM)
 ================================
 
-This Package is a fully fledged IPv4/IPv6 Address management Tool. It provides a RESTFul API through which to manage IP address space.
+TIPAM is a very fast RESTFul IPv4/IPv6 Address management Tool.
+
 
 Required Python Packages:
 =========================
+
 * luxon
 * pyipcalc
+
 
 Installation
 ============
@@ -53,7 +56,7 @@ As a first step, you have to *Add* a prefix. You can't *allocate* or *find* pref
 
 Adding a prefix, creates the prefix in the IPAM, and always makes it available by setting `free=True`.
 
-Now that a prefix has been added to the IPAM, you can *allocate* a prefix:
+Now that a prefix has been added to the IPAM, you can *allocate* a prefix from it:
 
 ..code:: bash
 
@@ -65,7 +68,7 @@ Now that a prefix has been added to the IPAM, you can *allocate* a prefix:
 	    "name": "Customer 1"
         }'
 
-Allocating a prefix set's `free=False`, which means no more prefixes can be added/allocated from that prefix.
+Allocating a prefix set's `free=False`, which means no more prefixes can be added/allocated from the allcoated prefix.
 
 You can associate tags with prefixes:
 
