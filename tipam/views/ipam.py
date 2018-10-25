@@ -32,7 +32,7 @@ from luxon import register
 from luxon import router
 from luxon import db
 
-from luxon.exceptions import HTTPNotFound, FieldMissing
+from luxon.exceptions import HTTPNotFound, FieldMissing, ValidationError
 
 from pyipcalc import (int_to_ip,
                       int_32_to_128,
@@ -104,6 +104,9 @@ class IPam:
         fields = ('name', 'prefix', 'prefix_type', 'rib', 'description')
         prefix = {i: req.json.get(i) for i in fields if i in req.json}
 
+        if 'prefix_type' in prefix and prefix['prefix_type'] == "hidden":
+            raise ValidationError("'hidden' is a reserved prefix_type")
+
         return format_prefix(ipam.add_prefix(**prefix).dict)
 
     def view_prefix(self, req, resp, pid):
@@ -133,6 +136,9 @@ class IPam:
         prefix = {i: req.json.get(i) for i in fields if i in req.json}
         prefix['prefix'] = '%s/%s' % (
         fprefix['prefix'], fprefix['prefix_len'],)
+
+        if 'prefix_type' in prefix and prefix['prefix_type'] == "hidden":
+            raise ValidationError("'hidden' is a reserved prefix_type")
 
         return format_prefix(ipam.add_prefix(**prefix).dict)
 
