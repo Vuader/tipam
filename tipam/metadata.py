@@ -9,7 +9,7 @@ package = 'tipam'
 project = "Tachyonic Project IP Address Manager"
 project_no_spaces = project.replace(' ', '')
 # Please follow https://www.python.org/dev/peps/pep-0440/
-version = '0.0.0'
+version = '0.0.1'
 description = "Tachyonic Project's IP Address Manager"
 author = 'Myria Solutions (PTY) Ltd'
 email = 'project@tachyonic.org'
