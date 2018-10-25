@@ -433,8 +433,8 @@ class IPAM(object):
             # It exists
             if exist:
                 conn.execute('UPDATE tipam_prefix SET prefix_type=?,'
-                             'description=? WHERE id=?',
-                             (prefix_type, description, exist['id'],))
+                             'description=?,name=? WHERE id=?',
+                             (prefix_type, description, name, exist['id'],))
                 self._update_children(conn, exist['parent'], exist['id'],
                                       prefix, rib)
                 conn.commit()
