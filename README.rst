@@ -157,6 +157,12 @@ After prefixes have been added or allocated, they can be modified with ``PUT`` o
 Note that ``PUT`` on ``/v1/prefix/{id}`` is equavalent to ``POST`` on ``/v1/prefix`` when the values for ``prefix``
 and ``rib`` is equal to that of prefix with UUID of ``id``.
 
+Only the following fields can be updated:
+
+* name
+* description
+* prefix_type
+
 Deletion
 --------
 
